@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Kebutuhan Protein Harian 🥩</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="calculator-card">
+    <div class="header">
+      <div class="icon">🥩</div>
+      <h1>Kalkulator Protein</h1>
+      <p>Hitung kebutuhan protein harianmu sesuai target tubuh!</p>
+    </div>
+
+    <form id="proteinForm">
+      <!-- Input Berat Badan -->
+      <div class="form-group">
+        <label for="weight">Berat Badan (kg)</label>
+        <input type="number" id="weight" placeholder="Contoh: 60" min="20" max="200" required>
+      </div>
+
+      <!-- Tingkat Aktivitas -->
+      <div class="form-group">
+        <label for="activity">Tingkat Aktivitas Harian</label>
+        <select id="activity" required>
+          <option value="1.0">Jarang berolahraga (Banyak duduk)</option>
+          <option value="1.2" selected>Ringan (Olahraga 1-3 hari/minggu)</option>
+          <option value="1.5">Sedang (Olahraga 3-5 hari/minggu)</option>
+          <option value="1.8">Berat (Olahraga rutin 6-7 hari/minggu)</option>
+        </select>
+      </div>
+
+      <!-- Target Kesehatan/Tujuan -->
+      <div class="form-group">
+        <label for="goal">Tujuan Kesehatan</label>
+        <select id="goal" required>
+          <option value="maintain">Menjaga Berat Badan & Kesehatan</option>
+          <option value="fat_loss">Menurunkan Lemak (Fat Loss)</option>
+          <option value="muscle_gain">Membentuk / Menambah Otot (Muscle Gain)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-calculate">Hitung Protein 🚀</button>
+    </form>
+
+    <!-- Hasil Perhitungan -->
+    <div id="resultBox" class="result-box hidden">
+      <h2>Hasil Kebutuhan Protein Harian:</h2>
+      <div class="protein-value" id="proteinOutput">0 gram</div>
+      <p class="description" id="resultDescription"></p>
+
+      <!-- Rekomendasi Sumber Makanan -->
+      <div class="food-recommendation">
+        <h3>💡 Setara dengan:</h3>
+        <ul id="foodList"></ul>
+      </div>
+
+      <button type="button" class="btn-reset" onclick="resetForm()">Hitung Ulang 🔄</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
